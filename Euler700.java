@@ -14,23 +14,15 @@ Find the sum of all Eulercoins.
 */
 
 /*
-How I found the solution - 
-
-The logic for this problem is fairly straightforward.  Expectedly the JVM eve+ntually hangs, as the number of iterations needed to find the next coin exponentially increases.
-Thus began the process of minimizing the number of iterations from a nearly infinite value.  
-
-I printed out various subsets of the data, analyzing it from many different angles before I noticed the pattern. 
 
 Every time a new coin is found, there is a minimum amount that n must increase.  This base value is the amount that n increased from the last 2 coins found.  
 
-Adding this at the end of the iterations that find a coin reduces the total number of iterations, but very insignificantly due to the exponential nature of the function.  
-
-What about the large remainders?  It's impossible for the computer to iterate through such massive values 1 at a time. 
+Adding this at the end of the iterations that find a coin reduces the total number of iterations, but very insignificantly.  
 
 That's when I noticed the pattern.  The remainder of the iterations to the next coin (after subtracting the base amount) is always a multiple of the n value at the current coin, including 0.
 So if adding the base value does not get the next coin (adding the base value is sometimes the exact amount to the next coin), start to add multiples of n.  
 
-This only applies after the third coin is found at n = 506.  
+
 */
 
 package euler;
